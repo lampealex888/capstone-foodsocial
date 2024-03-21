@@ -2,18 +2,26 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle 
 import numpy as np
+from ingredient_parser import ingredient_parser
 
 # load in parsed recipe dataset 
-df_recipes = pd.read_json("recipes_parsed.json")
-for i in range(len(df_recipes)):
-    df_recipes['parsed'].iloc[i] = ' '.join(df_recipes['parsed'].iloc[i])
-df_recipes['parsed'] = df_recipes.parsed.values.astype('U')
-# df_recipes['parsed'] = df_recipes['parsed'].apply(lambda x: ' '.join(x) if isinstance(x, list) else x)
+# Read JSON data into DataFrame
+recipe_df = pd.read_json('recipes.json', orient='index')
+# Remove unnecessary columns
+recipe_df = recipe_df.drop(columns=['author_id', 'date_published', 'picture_path'])
+# Drop rows with missing values
+recipe_df = recipe_df.dropna()
+# Reset index and rename index column
+recipe_df = recipe_df.reset_index().rename(columns={'index': 'recipe_id'})
+# Applying the function to the 'ingredients' column
+recipe_df['parsed'] = recipe_df['ingredients'].apply(lambda x: ingredient_parser(x))
+# Joining the parsed ingredients lists into strings
+recipe_df['parsed'] = recipe_df['parsed'].apply(lambda x: ' '.join(x))
 
 # TF-IDF feature extractor 
 tfidf = TfidfVectorizer()
-tfidf.fit(df_recipes['parsed'])
-tfidf_recipe = tfidf.transform(df_recipes['parsed'])
+tfidf.fit(recipe_df['parsed'])
+tfidf_recipe = tfidf.transform(recipe_df['parsed'])
 
 # save the tfidf model and encodings 
 with open("tfidf_encodings.pkl", "wb") as f:
