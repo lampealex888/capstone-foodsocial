@@ -31,14 +31,19 @@ source ./venv/bin/activate
 ```
 
 ### Install Required Packages
+1. Download the server.tar.gz file
 
-```bash 
+2. Extract it
+```bash
 tar -xvzf server.tar.gz
+```
+3. Installing the required packages
+```bash 
 cd server
 pip install -r requirements.txt
 ``` 
 
-NOTE! There are probably going to be errors with installing the dependencies form requirements.txt. If there are any, try to edit requirements.txt to versions that are available that are mentioned in the error message. Or you can try removing it from requirements.txt and see if the program still works later. If it still doesn't work then a different version of Python might be needed (works on 3.8.5, 3.10.12, and 3.11.2)
+NOTE! There are likely to be errors with installing the dependencies from requirements.txt. If there are any, try to edit requirements.txt to available versions mentioned in the error message. Or you can remove it from requirements.txt and see if the program still works later. If it still doesn't work then a different version of Python might be needed (works on 3.8.5, 3.10.12, and 3.11.2)
 
 ### Downloading NLTK Data (only required once)
 
@@ -77,4 +82,5 @@ python3 app.py
 ### Troubleshooting SSL Error
 If you encountered SSL errors during package installation, try running the following command and installing essential libraries
 ```bash
-sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget```
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+```
