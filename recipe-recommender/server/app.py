@@ -10,17 +10,8 @@ import rec_sys
 app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
-def hello():
-    return HELLO_HTML
-
-HELLO_HTML = """
-     <html><body>
-         <h1>Welcome to the recipe recommender API!</h1>
-         <p>Please add some ingredients to the url to receive recipe recommendations.
-            You can do this by appending "/recipe?ingredients=Butter,Sugar,..." to the current url.
-         <br>Click <a href="/recipe?ingredients=Butter,Sugar,Vanilla Extract">here</a> for an example when using the ingredients: butter, sugar, vanilla extract.
-     </body></html>
-     """
+def index():
+    return render_template('main_page.html')
 
 @app.route('/recipe', methods=["GET"])
 def recommend_recipe():
