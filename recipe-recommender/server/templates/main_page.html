@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Recipe Recommender</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Recipe Recommender</h1>
+    </header>
+    <div class="container">
+        <p id="p1"> Please add some ingredients to the input field to receive recipe recommendations.</p>
+        <form action="/recipe" method="get" id="recipeForm">
+            <label for="ingredients">Enter Ingredients:</label><br>
+            <input type="text" id="ingredients" name="ingredients" placeholder="e.g., Butter, Sugar, Salt"><br><br>
+            <input type="submit" value="Get Recipes">
+        </form>
+        <div id="recipeOutput"></div>
+    </div>
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
