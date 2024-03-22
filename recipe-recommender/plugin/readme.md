@@ -1,9 +1,8 @@
 # WordPress Plugin Template
-Name: Recipe Recommender
-Contributors: Alex Lampe and Shreya Kalla
-Requires at least: 3.9
-Tested up to: 4.0
-Stable tag: 1.0
+* Name: Recipe Recommender
+* Contributors: Alex Lampe and Shreya Kalla
+* Tested up to: 4.0
+* Stable tag: 1.0
 
 ## Description
 
