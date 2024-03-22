@@ -23,7 +23,7 @@ function recipe_recommender_shortcode($atts = array())
     ob_start();
     ?>
     <div id="recipe-recommender-container">
-        <label for="ingredients">Enter ingredients (comma-separated and single words):</label>
+        <label for="ingredients">Enter ingredients (comma-separated):</label>
         <input type="text" id="ingredients" placeholder="Enter ingredients (comma-separated)">
         <button id="get-recipe">Get Recipe</button>
         <div id="recipe-result"></div>
