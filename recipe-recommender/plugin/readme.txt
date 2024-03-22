@@ -1,11 +1,8 @@
-## WordPress Plugin Template ##
+# WordPress Plugin Template
 Contributors: Alex Lampe and Shreya Kalla
 Requires at least: 3.9
 Tested up to: 4.0
 Stable tag: 1.0
-
-
-Recipe Recommender Plugin
 
 ## Description
 
@@ -24,7 +21,7 @@ Recipe Recommender is a WordPress plugin that allows users to get recipe recomme
 
 1. Allows users to enter ingredients and get recipe recommendations.
 2. Uses AJAX to fetch and display recipes without reloading the page.
-3. Provides a simple and intuitive interface for users to interact withecipe recommender form to appear. Users can then enter ingredients and click the "Get Recipe" button to see recommended recipes.
+3. Provides a simple and intuitive interface for users to interact with.
 
 ## Changelog
 
