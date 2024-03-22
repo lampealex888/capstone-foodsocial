@@ -1,4 +1,4 @@
-=== WordPress Plugin Template ===
+## WordPress Plugin Template ##
 Contributors: Alex Lampe and Shreya Kalla
 Requires at least: 3.9
 Tested up to: 4.0
