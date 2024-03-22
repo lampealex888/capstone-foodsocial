@@ -1,17 +1,21 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request
 from flask_jsonpify import jsonpify
-import json, requests, pickle
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity  
-from ingredient_parser import ingredient_parser
 import rec_sys
 
 app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
-def index():
-    return render_template('main_page.html')
+def hello():
+    return HELLO_HTML
+
+HELLO_HTML = """
+     <html><body>
+         <h1>Welcome to the recipe recommender API!</h1>
+         <p>Please add some ingredients to the url to receive recipe recommendations.
+            You can do this by appending "/recipe?ingredients=Butter,Sugar,..." to the current url.
+         <br>Click <a href="/recipe?ingredients=Butter,Sugar,Vanilla Extract">here</a> for an example when using the ingredients: butter, sugar, vanilla extract.
+     </body></html>
+     """
 
 @app.route('/recipe', methods=["GET"])
 def recommend_recipe():
@@ -32,9 +36,7 @@ def recommend_recipe():
    
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
-
-
+    app.run(host="0.0.0.0", debug=False, port=5000)
 
 # http://127.0.0.1:5000/recipe?ingredients=pasta
 
