@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import unidecode
 import ast
+import re
 
 from gensim.models import Word2Vec
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -38,8 +39,6 @@ def get_recommendations(N, scores):
     """
     # Read JSON data into DataFrame
     recipe_df = pd.read_json('recipes.json', orient='index')
-    # Remove unnecessary columns
-    recipe_df = recipe_df.drop(columns=['author_id', 'date_published', 'picture_path'])
     # Drop rows with missing values
     recipe_df = recipe_df.dropna()
     # Reset index and rename index column
@@ -60,7 +59,7 @@ def get_recommendations(N, scores):
         count += 1
     return recommendation
 
-def get_recs(ingredients, N=5, mean=False):
+def get_recs(ingredients, N=5, mean=True):
     """
     Get the top N recipe recomendations.
     :param ingredients: comma seperated string listing ingredients
@@ -74,8 +73,6 @@ def get_recs(ingredients, N=5, mean=False):
     # load in data
     # Read JSON data into DataFrame
     recipe_df = pd.read_json('recipes.json', orient='index')
-    # Remove unnecessary columns
-    recipe_df = recipe_df.drop(columns=['author_id', 'date_published', 'picture_path'])
     # Drop rows with missing values
     recipe_df = recipe_df.dropna()
     # Reset index and rename index column
@@ -104,6 +101,8 @@ def get_recs(ingredients, N=5, mean=False):
     input = input.split(",")
     # parse ingredient list
     input = ingredient_parser(input)
+    # remove all special characters
+    input = re.sub(r"[^\w\s]", "", input)
     # get embeddings for ingredient doc
     if mean:
         input_embedding = mean_vec_tr.transform([input])[0].reshape(1, -1)

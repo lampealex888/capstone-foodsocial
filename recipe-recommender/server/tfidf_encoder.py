@@ -7,8 +7,6 @@ from ingredient_parser import ingredient_parser
 # load in parsed recipe dataset 
 # Read JSON data into DataFrame
 recipe_df = pd.read_json('recipes.json', orient='index')
-# Remove unnecessary columns
-recipe_df = recipe_df.drop(columns=['author_id', 'date_published', 'picture_path'])
 # Drop rows with missing values
 recipe_df = recipe_df.dropna()
 # Reset index and rename index column

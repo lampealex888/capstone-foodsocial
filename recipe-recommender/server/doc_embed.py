@@ -1,3 +1,5 @@
+import numpy as np
+
 class MeanEmbeddingVectorizer(object):
     def __init__(self, model_cbow):
         self.model_cbow = model_cbow
@@ -8,7 +10,7 @@ class MeanEmbeddingVectorizer(object):
 
     def transform(self, docs):
         doc_vector = self.doc_average_list(docs)
-        return doc_word_vector
+        return doc_vector
 
     def doc_average(self, doc):
         mean = []
