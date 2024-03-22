@@ -1,26 +1,24 @@
 === WordPress Plugin Template ===
-Contributors: hlashbrooke
-Donate link: http://www.hughlashbrooke.com/donate
-Tags: wordpress, plugin, template
+Contributors: Alex Lampe and Shreya Kalla
 Requires at least: 3.9
 Tested up to: 4.0
 Stable tag: 1.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This is where you craft a short, punchy description of your plugin
 
-== Description ==
+Recipe Recommender Plugin
 
-This is where you can give a much longer description of your plugin that you can use to explain just how it awesome it really is.
+## Description
 
-== Installation ==
+Recipe Recommender is a WordPress plugin that allows users to get recipe recommendations based on the ingredients they have. Users can enter a list of ingredients, and the plugin will fetch and display a list of recommended recipes using those ingredients.
 
-Installing "WordPress Plugin Template" can be done either by searching for "WordPress Plugin Template" via the "Plugins > Add New" screen in your WordPress dashboard, or by using the following steps:
+## Installation
 
-1. Download the plugin via WordPress.org
-1. Upload the ZIP file through the 'Plugins > Add New > Upload' screen in your WordPress dashboard
-1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Download the `recipe-recommender` plugin folder.
+2. Upload the `recipe-recommender` folder to the `/wp-content/plugins/` directory of your WordPress installation.
+3. Log in to your WordPress dashboard.
+4. Navigate to the 'Plugins' menu and click on 'Installed Plugins.'
+5. Locate the 'Recipe Recommender' plugin in the list of plugins.
+6. Click the 'Activate' link below the plugin's name to activate the plugin.
 
 == Screenshots ==
 
@@ -28,20 +26,13 @@ Installing "WordPress Plugin Template" can be done either by searching for "Word
 2. Description of second screenshot named screenshot-2
 3. Description of third screenshot named screenshot-3
 
-== Frequently Asked Questions ==
+## Features
 
-= What is the plugin template for? =
+1. Allows users to enter ingredients and get recipe recommendations.
+2. Uses AJAX to fetch and display recipes without reloading the page.
+3. Provides a simple and intuitive interface for users to interact withecipe recommender form to appear. Users can then enter ingredients and click the "Get Recipe" button to see recommended recipes.
 
-This plugin template is designed to help you get started with any new WordPress plugin.
+## Changelog
 
-== Changelog ==
-
-= 1.0 =
-* 2012-12-13
-* Initial release
-
-== Upgrade Notice ==
-
-= 1.0 =
-* 2012-12-13
-* Initial release
+1.0.0
+Initial release
