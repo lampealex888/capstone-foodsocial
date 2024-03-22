@@ -20,12 +20,6 @@ Recipe Recommender is a WordPress plugin that allows users to get recipe recomme
 5. Locate the 'Recipe Recommender' plugin in the list of plugins.
 6. Click the 'Activate' link below the plugin's name to activate the plugin.
 
-== Screenshots ==
-
-1. Description of first screenshot named screenshot-1
-2. Description of second screenshot named screenshot-2
-3. Description of third screenshot named screenshot-3
-
 ## Features
 
 1. Allows users to enter ingredients and get recipe recommendations.
