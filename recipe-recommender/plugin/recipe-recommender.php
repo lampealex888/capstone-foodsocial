@@ -23,9 +23,9 @@ function recipe_recommender_shortcode($atts = array())
     ob_start();
     ?>
     <div id="recipe-recommender-container">
-        <label for="ingredients">Enter ingredients (comma-separated and one word):</label>
-        <input type="text" id="ingredients" placeholder="rice, soy, sauce, egg">
-        <button id="get-recipe" style="font-size: smaller;">Get Recipe!</button>
+        <label for="ingredients">Enter ingredients (comma-separated and single words):</label>
+        <input type="text" id="ingredients" placeholder="Enter ingredients (comma-separated)">
+        <button id="get-recipe">Get Recipe</button>
         <div id="recipe-result"></div>
     </div>
     <?php
@@ -39,8 +39,9 @@ function recipe_recommender_ajax_handler()
     check_ajax_referer('recipe_recommender_nonce', 'nonce');
 
     $ingredients = sanitize_text_field($_POST['ingredients']);
+    $ingredients_encoded = rawurlencode(str_replace(' ', '%20', $ingredients));
 
-    $api_url = "http://34.28.80.121:5000/recipe?ingredients=$ingredients";
+    $api_url = "http://34.28.80.121:5000/recipe?ingredients=$ingredients_encoded";
 
     $response = wp_remote_get($api_url);
 
@@ -52,8 +53,7 @@ function recipe_recommender_ajax_handler()
         if (!empty($recipes)) {
             $recipe_list = "<h3>Recommended Recipes:</h3><ul>";
             foreach ($recipes as $recipe) {
-                $ingredients_with_spaces = implode(', ', explode(',', $recipe['ingredients']));
-                $recipe_list .= "<li><strong>{$recipe['recipe']}</strong> <a href='{$recipe['url']}' target='_blank'>(View Recipe)</a><br>Ingredients: {$ingredients_with_spaces}<br><span style='font-size: small;'>Score: {$recipe['score']}</span></li>";
+                $recipe_list .= "<li><strong>{$recipe['recipe']}</strong> <a href='{$recipe['url']}' target='_blank'>(View Recipe)</a><br>Ingredients: {$recipe['ingredients']}<br>Score: {$recipe['score']}</li>";
             }
             $recipe_list .= "</ul>";
             wp_send_json_success($recipe_list);
